@@ -43,3 +43,5 @@ kubectl  apply -f dev-demo-argo-application.yaml -f staging-demo-argo-applicatio
 # Check the manifest file & match with the values given 
 kubectl get cm -n demo-dev demo -o jsonpath="{.data.env}" && echo 
 kubectl get cm -n demo-staging demo -o jsonpath="{.data.env}" && echo 
+
+![argo-apps](image-1.png)

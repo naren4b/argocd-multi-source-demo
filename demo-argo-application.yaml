@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+spec:
+  sources:
+    - repoURL: "https://github.com/naren4b/demo-app.git"
+      path: helm-chart
+      targetRevision: main
+      helm:
+        valueFiles:
+          - $values/env/dev-values.yaml
+    - repoURL: "https://github.com/naren4b/argocd-multi-source-demo.git"
+      targetRevision: main
+      ref: values

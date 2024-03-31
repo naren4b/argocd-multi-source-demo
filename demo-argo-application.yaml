@@ -7,7 +7,7 @@ spec:
       targetRevision: main
       helm:
         valueFiles:
-          - $values/env/dev-values.yaml
+          - $values/env/values.yaml
     - repoURL: "https://github.com/naren4b/argocd-multi-source-demo.git"
-      targetRevision: main
+      targetRevision: dev
       ref: values

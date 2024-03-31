@@ -23,6 +23,6 @@ argocd repo add ${REPO_URL} --username ${USERNAME} --password ${TOKEN}
 ```
 
 # Deploy the App 
-```
+```bash
 kubectl apply -f demo-argo-application.yaml
 ```

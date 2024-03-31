@@ -6,10 +6,13 @@ ref: Argo CD has the ability to specify multiple sources for a single Applicatio
 # Add Git repo
 
 ```bash
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# edit and add the argocd-server args - --insecure
 k get secrets -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
-argocd login localhost:30242  --insecure # node port or 8080 port-forward
+argocd login localhost:8080  --insecure
 
-USERNAME=npanda
+USERNAME=hello
 TOKEN=hello
 
 # Add Template Repo

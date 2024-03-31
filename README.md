@@ -33,7 +33,13 @@ REPO_URL=https://github.com/naren4b/argocd-multi-source-demo.git
 argocd repo add ${REPO_URL} --username ${USERNAME} --password ${TOKEN}
 ```
 ![Repos-added](image.png)
+
 # Deploy the App 
 ```bash
-kubectl apply -f demo-argo-application.yaml
+git clone https://github.com/naren4b/argocd-multi-source-demo.git
+kubectl  apply -f dev-demo-argo-application.yaml -f staging-demo-argo-application.yaml
 ```
+
+# Check the manifest file & match with the values given 
+kubectl get cm -n demo-dev demo -o jsonpath="{.data.env}" && echo 
+kubectl get cm -n demo-staging demo -o jsonpath="{.data.env}" && echo 

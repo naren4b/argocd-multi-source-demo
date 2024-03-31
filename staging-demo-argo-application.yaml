@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo-app
+  name: demo-app-dev
   namespace: argocd
 spec:
   destination:
@@ -14,7 +14,7 @@ spec:
       targetRevision: main
       helm:
         valueFiles:
-          - $values/env/values.yaml
+          - $values/env/staging-values.yaml
     - repoURL: "https://github.com/naren4b/argocd-multi-source-demo.git"
-      targetRevision: dev
+      targetRevision: main
       ref: values    

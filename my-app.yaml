@@ -1,0 +1,15 @@
+project: default
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: demo-dev
+sources:
+  - repoURL: 'https://github.com/naren4b/demo-app.git'
+    path: helm-chart
+    targetRevision: main
+    helm:
+      valueFiles:
+        - /env/dev-values.yaml
+  - repoURL: 'https://github.com/naren4b/argocd-multi-source-demo.git'
+    targetRevision: main
+    ref: values
+

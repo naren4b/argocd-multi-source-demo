@@ -1,6 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+metadata:
+  name: demo-app
+  namespace: argocd
 spec:
+  destination:
+    namespace: demo
+    server: https://kubernetes.default.svc
+  project: default
   sources:
     - repoURL: "https://github.com/naren4b/demo-app.git"
       path: helm-chart
@@ -10,4 +17,4 @@ spec:
           - $values/env/values.yaml
     - repoURL: "https://github.com/naren4b/argocd-multi-source-demo.git"
       targetRevision: dev
-      ref: values
+      ref: values    

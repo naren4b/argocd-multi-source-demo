@@ -1,5 +1,4 @@
-SERVER="https://edge-1-control-plane:6443"
-
+SERVER=$1 #"https://edge-1-control-plane:6443"
 cat<<EOF | kubectl apply  -n argocd -f -
 apiVersion: argoproj.io/v1alpha1
 kind: Application
